@@ -1,0 +1,2402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Le Destin — Curated Connections & Experiences</title>
+    <meta
+      name="description"
+      content="Le Destin is Singapore's curated matchmaking experience—thoughtful profiles, Match Credit and memorable real-world dates."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #211d18;
+        --muted: #71695f;
+        --gold: #b88a3b;
+        --pale: #f7f2e9;
+        --cream: #fcfaf6;
+        --line: #e9dfcf;
+        --dark: #17130f;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font:
+          15px/1.65 "DM Sans",
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        width: min(1160px, calc(100% - 40px));
+        margin: auto;
+      }
+      .nav {
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        z-index: 5;
+        left: 0;
+        right: 0;
+        color: #fff;
+      }
+      .brand {
+        font: 600 25px/1 "Playfair Display";
+        letter-spacing: 0.06em;
+      }
+      .brand i {
+        color: #e6c98d;
+        font-weight: 400;
+      }
+      .links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+      }
+      .links > a:not(.btn) {
+        font-size: 13px;
+        color: #f7f0e5;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 24px;
+        border: 1px solid var(--gold);
+        background: var(--gold);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        transition: 0.25s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        background: #a97c30;
+      }
+      .btn.ghost {
+        background: transparent;
+        border-color: #e7d6b7;
+        color: #fff;
+      }
+      .hero {
+        min-height: 780px;
+        background: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85")
+          center/cover;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        position: relative;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        inset: auto 0 0;
+        height: 180px;
+        background: linear-gradient(transparent, var(--cream));
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(19, 14, 10, 0.88),
+          rgba(19, 14, 10, 0.6),
+          rgba(19, 14, 10, 0.14)
+        );
+        pointer-events: none;
+      }
+      .hero-video {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      .hero.video-ready .hero-video {
+        opacity: 1;
+      }
+      .hero-copy {
+        position: relative;
+        z-index: 3;
+        max-width: 690px;
+        padding-top: 70px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .hero .eyebrow {
+        color: #e7ca91;
+      }
+      .hero h1 {
+        font: 500 clamp(55px, 7vw, 94px)/0.98 "Playfair Display";
+        margin: 18px 0 24px;
+        letter-spacing: -0.03em;
+      }
+      .hero h1 em {
+        font-weight: 400;
+        color: #e7ca91;
+      }
+      .hero p {
+        font-size: 19px;
+        max-width: 580px;
+        color: #eee7db;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+      .trust {
+        display: flex;
+        gap: 25px;
+        margin-top: 40px;
+        color: #ddd1c0;
+        font-size: 12px;
+      }
+      .trust span:before {
+        content: "✦";
+        color: #dabd81;
+        margin-right: 8px;
+      }
+      .section {
+        padding: 105px 0;
+      }
+      .intro {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 90px;
+        align-items: center;
+      }
+      .intro h2,
+      .head h2 {
+        font: 500 clamp(40px, 5vw, 64px)/1.08 "Playfair Display";
+        margin: 12px 0 18px;
+        letter-spacing: -0.02em;
+      }
+      .intro p,
+      .head p {
+        color: var(--muted);
+        font-size: 17px;
+      }
+      .portrait {
+        height: 590px;
+        position: relative;
+        background: url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85")
+          center/cover;
+      }
+      .portrait:before {
+        content: "CURATED IN SINGAPORE";
+        position: absolute;
+        right: -18px;
+        bottom: 24px;
+        background: #fff;
+        padding: 16px 22px;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        box-shadow: 0 15px 40px #2e25181c;
+      }
+      .steps {
+        background: #fff;
+      }
+      .head {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 55px;
+      }
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .step {
+        padding: 42px 34px;
+        border: 1px solid var(--line);
+        background: var(--cream);
+        position: relative;
+      }
+      .step b {
+        font: 500 48px "Playfair Display";
+        color: #d9bf8b;
+      }
+      .step h3,
+      .card h3 {
+        font: 500 25px "Playfair Display";
+        margin: 14px 0 8px;
+      }
+      .step p,
+      .card p {
+        color: var(--muted);
+      }
+      .credit {
+        background: var(--dark);
+        color: #fff;
+      }
+      .credit-inner {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 70px;
+        align-items: center;
+      }
+      .credit h2 {
+        font: 500 clamp(44px, 6vw, 72px)/1 "Playfair Display";
+        margin: 16px 0;
+      }
+      .credit p {
+        color: #cfc3b2;
+        font-size: 17px;
+        max-width: 600px;
+      }
+      .coin {
+        width: min(370px, 75vw);
+        aspect-ratio: 1;
+        border: 1px solid #bc9150;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        margin: auto;
+        box-shadow:
+          0 0 0 18px #b88a3b0d,
+          0 0 0 36px #b88a3b08;
+      }
+      .coin div {
+        text-align: center;
+      }
+      .coin strong {
+        display: block;
+        font: 500 76px/1 "Playfair Display";
+        color: #dabd81;
+      }
+      .coin small {
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #b7a88f;
+      }
+      .experiences {
+        background: var(--pale);
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .card {
+        background: #fff;
+        min-height: 420px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .card:nth-child(1) {
+        grid-column: span 4;
+      }
+      .card-img {
+        height: 230px;
+        background-size: cover;
+        background-position: center;
+        transition: 0.5s;
+      }
+      .card:hover .card-img {
+        transform: scale(1.025);
+      }
+      .card-body {
+        padding: 26px;
+      }
+      .card-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .card-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 27px;
+        padding: 0 10px;
+        background: var(--pale);
+        color: #4b3a25;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .tag {
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        color: var(--gold);
+        text-transform: uppercase;
+      }
+      .membership {
+        background: #fff;
+      }
+      .tiers {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .tier {
+        border: 1px solid var(--line);
+        padding: 32px 25px;
+        min-height: 350px;
+      }
+      .tier.featured {
+        background: var(--dark);
+        color: #fff;
+        transform: translateY(-12px);
+        border-color: var(--dark);
+      }
+      .tier h3 {
+        font: 500 28px "Playfair Display";
+        margin: 7px 0;
+      }
+      .tier-price {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        margin: 18px 0 6px;
+        color: var(--ink);
+      }
+      .tier.featured .tier-price {
+        color: #fff;
+      }
+      .tier-price strong {
+        font: 500 34px/1 "Playfair Display";
+      }
+      .tier-price span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .tier.featured .tier-price span {
+        color: #cfc3b2;
+      }
+      .tier-yearly {
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .tier .sub {
+        font-size: 12px;
+        color: var(--gold);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .tier ul {
+        list-style: none;
+        padding: 15px 0 0;
+        margin: 0;
+      }
+      .tier li {
+        padding: 8px 0;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+      }
+      .tier.featured li {
+        color: #cfc3b2;
+        border-color: #322b23;
+      }
+      .signup {
+        padding: 110px 0;
+        background:
+          linear-gradient(90deg, rgba(20, 15, 11, 0.87), rgba(20, 15, 11, 0.5)),
+          url("https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=2000&q=85")
+            center/cover;
+        background-attachment: fixed;
+        color: #fff;
+      }
+      .signup-box {
+        max-width: 720px;
+        text-align: center;
+      }
+      .signup h2 {
+        font: 500 clamp(45px, 6vw, 72px)/1.05 "Playfair Display";
+        margin: 14px 0;
+      }
+      .signup p {
+        color: #ddd2c1;
+        font-size: 17px;
+      }
+      .signup .signup-box .actions .btn {
+        margin: auto;
+      }
+      .reward {
+        display: inline-block;
+        border: 1px solid #d5b87c;
+        padding: 12px 18px;
+        margin: 12px 0 10px;
+        color: #ecd49f;
+      }
+      .faq {
+        max-width: 850px;
+      }
+      .faq details {
+        border-top: 1px solid var(--line);
+        padding: 22px 4px;
+      }
+      .faq details:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      summary {
+        cursor: pointer;
+        font: 500 20px "Playfair Display";
+        list-style: none;
+      }
+      summary:after {
+        content: "+";
+        float: right;
+        color: var(--gold);
+      }
+      details[open] summary:after {
+        content: "−";
+      }
+      .faq details p {
+        color: var(--muted);
+        max-width: 720px;
+      }
+      .footer {
+        background: #110e0b;
+        color: #cfc4b3;
+        padding: 52px 0 26px;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+      }
+      .footer .brand {
+        color: #fff;
+      }
+      .footer small {
+        display: block;
+        border-top: 1px solid #30281f;
+        margin-top: 35px;
+        padding-top: 22px;
+        color: #82776a;
+      }
+      .mobile-cta {
+        display: none;
+      }
+      @media (max-width: 850px) {
+        .links a:not(.btn) {
+          display: none;
+        }
+        .nav .btn {
+          padding: 0 15px;
+        }
+        .hero {
+          min-height: 710px;
+        }
+        .hero-copy {
+          padding-top: 40px;
+        }
+        .trust {
+          flex-direction: column;
+          gap: 7px;
+        }
+        .intro,
+        .credit-inner {
+          grid-template-columns: 1fr;
+          gap: 45px;
+        }
+        .portrait {
+          height: 450px;
+        }
+        .grid3,
+        .tiers {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cards .card {
+          grid-column: span 6;
+        }
+        .tier.featured {
+          transform: none;
+        }
+        .section {
+          padding: 76px 0;
+        }
+      }
+      @media (max-width: 560px) {
+        .wrap {
+          width: min(100% - 28px, 1160px);
+        }
+        .hero h1 {
+          font-size: 53px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+        .grid3,
+        .tiers {
+          grid-template-columns: 1fr;
+        }
+        .cards .card {
+          grid-column: span 12;
+        }
+        .portrait {
+          height: 390px;
+        }
+        .foot {
+          flex-direction: column;
+        }
+        .mobile-cta {
+          display: flex;
+          position: fixed;
+          z-index: 20;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 10px 14px;
+          background: #fff;
+          box-shadow: 0 -6px 30px #0002;
+        }
+        .mobile-cta .btn {
+          width: 100%;
+        }
+        .footer {
+          padding-bottom: 90px;
+        }
+      }
+      .hero {
+        background-image: url("https://unsplash.com/photos/a3oz1ecXwrE/download?force=true&w=2000");
+      }
+      .portrait {
+        background-image: url("images/asian-girl-second-section.jpg");
+      }
+      .signup {
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(20, 15, 11, 0.88),
+            rgba(20, 15, 11, 0.48)
+          ),
+          url("https://images.pexels.com/photos/31790454/pexels-photo-31790454/free-photo-of-happy-south-asian-couple-outdoors-at-night.jpeg?auto=compress&dpr=1&w=1800");
+      }
+      .reviews {
+        background: #fff;
+      }
+      .review-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .review {
+        border: 1px solid var(--line);
+        background: var(--cream);
+        overflow: hidden;
+      }
+      .review-photo {
+        height: 260px;
+        background-size: cover;
+        background-position: center;
+      }
+      .review-copy {
+        padding: 28px;
+      }
+      .stars {
+        color: var(--gold);
+        letter-spacing: 0.18em;
+      }
+      .quote {
+        font: 500 22px/1.45 "Playfair Display";
+        margin: 14px 0;
+      }
+      .names {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .verified {
+        display: inline-block;
+        margin-top: 12px;
+        color: var(--gold);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      @media (max-width: 850px) {
+        .review-grid {
+          grid-template-columns: 1fr;
+        }
+        .review-photo {
+          height: 340px;
+        }
+      }
+      .moments {
+        background: var(--pale);
+      }
+      .moment-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 250px;
+        gap: 16px;
+      }
+      .moment {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .moment:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(transparent 55%, rgba(14, 10, 7, 0.62));
+      }
+      .moment strong {
+        position: absolute;
+        z-index: 1;
+        left: 22px;
+        bottom: 18px;
+        color: #fff;
+        font: 500 20px "Playfair Display";
+      }
+      .moment.hero-moment {
+        grid-column: span 12;
+        grid-row: span 2;
+      }
+      .moment.small {
+        grid-column: span 6;
+      }
+      .moment-note {
+        text-align: center;
+        color: var(--muted);
+        margin-top: 22px;
+      }
+      .event-grid[data-fallback="false"] {
+        grid-auto-rows: 270px;
+      }
+      .event-card {
+        display: flex;
+        align-items: end;
+        color: #fff;
+      }
+      .event-card:after {
+        background: linear-gradient(
+          180deg,
+          rgba(14, 10, 7, 0.1) 0%,
+          rgba(14, 10, 7, 0.35) 42%,
+          rgba(14, 10, 7, 0.86) 100%
+        );
+      }
+      .event-card.hero-moment {
+        min-height: 520px;
+      }
+      .event-copy {
+        position: relative;
+        z-index: 1;
+        width: min(760px, calc(100% - 44px));
+        margin: 0 22px 22px;
+      }
+      .event-kicker,
+      .event-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 11px;
+        background: rgba(255, 255, 255, 0.92);
+        color: #7a541b;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .event-card h3 {
+        font: 500 clamp(28px, 4vw, 54px) / 1.02 "Playfair Display";
+        margin: 14px 0 9px;
+        letter-spacing: -0.02em;
+      }
+      .event-card.small h3 {
+        font-size: 28px;
+      }
+      .event-card p {
+        max-width: 660px;
+        margin: 0 0 18px;
+        color: #f4eadc;
+        font-size: 15px;
+      }
+      .event-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .event-pill {
+        background: rgba(246, 239, 228, 0.95);
+        color: #3b2a18;
+        letter-spacing: 0.04em;
+        text-transform: none;
+      }
+      @media (max-width: 650px) {
+        .moment-grid {
+          grid-auto-rows: 230px;
+        }
+        .moment.hero-moment {
+          grid-row: span 1;
+        }
+        .event-card.hero-moment {
+          min-height: 230px;
+        }
+        .event-copy {
+          width: calc(100% - 32px);
+          margin: 0 16px 16px;
+        }
+        .event-card h3,
+        .event-card.small h3 {
+          font-size: 27px;
+        }
+        .event-card p {
+          display: none;
+        }
+        .moment.small {
+          grid-column: span 12;
+        }
+      }
+
+      /* Le Meow Phase 2 first-launch walkthrough */
+      body.walkthrough-open {
+        overflow: hidden;
+      }
+      .wt-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        overflow: auto;
+        background:
+          radial-gradient(
+            circle at 8% 14%,
+            rgba(209, 165, 79, 0.2),
+            transparent 27%
+          ),
+          radial-gradient(
+            circle at 91% 82%,
+            rgba(184, 138, 59, 0.16),
+            transparent 29%
+          ),
+          linear-gradient(135deg, #fffdfa 0%, #fbf5ea 52%, #f5e8d2 100%);
+        color: #201a13;
+      }
+      .wt-overlay[hidden] {
+        display: none;
+      }
+      .wt-overlay:before,
+      .wt-overlay:after {
+        content: "";
+        position: fixed;
+        border: 1px solid rgba(184, 138, 59, 0.23);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .wt-overlay:before {
+        width: 360px;
+        height: 360px;
+        left: -190px;
+        top: 16%;
+      }
+      .wt-overlay:after {
+        width: 460px;
+        height: 460px;
+        right: -280px;
+        bottom: -170px;
+      }
+      .wt-shell {
+        width: min(1320px, 100%);
+        min-height: 100dvh;
+        margin: auto;
+        padding: 22px clamp(20px, 4vw, 64px) 24px;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 12px;
+        position: relative;
+      }
+      .wt-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 58px;
+      }
+      .wt-logo {
+        width: 132px;
+        height: 52px;
+        object-fit: cover;
+        object-position: center;
+        mix-blend-mode: multiply;
+      }
+      .wt-skip,
+      .wt-chapter,
+      .wt-dot,
+      .wt-back,
+      .wt-next,
+      .wt-launch,
+      .wt-replay {
+        font:
+          600 14px/1 "DM Sans",
+          sans-serif;
+        cursor: pointer;
+      }
+      .wt-skip {
+        border: 0;
+        background: transparent;
+        color: #6b6052;
+        padding: 12px 2px;
+        letter-spacing: 0.04em;
+      }
+      .wt-skip:hover {
+        color: #8f6525;
+      }
+      .wt-main {
+        display: grid;
+        grid-template-columns: minmax(300px, 1fr) auto minmax(155px, 0.48fr);
+        align-items: center;
+        gap: clamp(34px, 5vw, 80px);
+        min-height: 0;
+      }
+      .wt-copy {
+        max-width: 480px;
+        justify-self: end;
+      }
+      .wt-count {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #9a6c25;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .wt-count:before {
+        content: "";
+        width: 40px;
+        height: 1px;
+        background: #b88a3b;
+      }
+      .wt-title {
+        font:
+          500 clamp(43px, 4.4vw, 72px)/1.03 "Playfair Display",
+          serif;
+        letter-spacing: -0.035em;
+        margin: 18px 0;
+        color: #211a13;
+        max-width: 650px;
+      }
+      .wt-title em {
+        font-weight: 400;
+        color: #a87526;
+      }
+      .wt-body {
+        font-size: 17px;
+        line-height: 1.65;
+        color: #6e6458;
+        max-width: 460px;
+        margin: 0 0 28px;
+      }
+      .wt-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .wt-feature {
+        min-height: 112px;
+        padding: 17px 16px;
+        border: 1px solid rgba(184, 138, 59, 0.25);
+        background: rgba(255, 255, 255, 0.64);
+        box-shadow: 0 14px 36px rgba(74, 52, 20, 0.06);
+        backdrop-filter: blur(8px);
+      }
+      .wt-feature-icon {
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #b88a3b;
+        color: #fff;
+        margin-bottom: 11px;
+        font-size: 13px;
+      }
+      .wt-feature strong {
+        display: block;
+        font-size: 14px;
+        color: #2b231a;
+        margin-bottom: 5px;
+      }
+      .wt-feature span {
+        display: block;
+        color: #7c7062;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+      .wt-phone {
+        height: min(71dvh, 750px);
+        aspect-ratio: 9/19.35;
+        border-radius: clamp(38px, 4vw, 58px);
+        padding: 9px;
+        background: linear-gradient(145deg, #111, #302a24 48%, #050505);
+        box-shadow:
+          0 42px 100px rgba(54, 37, 15, 0.23),
+          0 0 0 1px #cba55f,
+          0 0 0 7px rgba(255, 255, 255, 0.7);
+        position: relative;
+        isolation: isolate;
+      }
+      .wt-phone:before {
+        content: "";
+        position: absolute;
+        z-index: 5;
+        top: 7px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 31%;
+        height: 25px;
+        border-radius: 0 0 16px 16px;
+        background: #070707;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);
+      }
+      .wt-viewport {
+        height: 100%;
+        border-radius: calc(clamp(38px, 4vw, 58px) - 9px);
+        overflow: hidden;
+        background: #f8f3eb;
+        position: relative;
+        touch-action: pan-y;
+      }
+      .wt-track {
+        height: 100%;
+        display: flex;
+        transition: transform 0.58s cubic-bezier(0.22, 0.8, 0.2, 1);
+        will-change: transform;
+      }
+      .wt-slide {
+        height: 100%;
+        min-width: 100%;
+        position: relative;
+        overflow: hidden;
+        background: #f9f4ec;
+      }
+      .wt-primary {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: top center;
+      }
+      .wt-slide:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        box-shadow: inset 0 -70px 60px -75px rgba(32, 23, 14, 0.34);
+        pointer-events: none;
+      }
+      .wt-peek {
+        position: absolute;
+        z-index: 2;
+        right: 12px;
+        bottom: 56px;
+        width: 45%;
+        height: 39%;
+        border: 5px solid rgba(255, 255, 255, 0.95);
+        border-radius: 22px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 18px 45px rgba(32, 21, 8, 0.26);
+        transform: rotate(2deg);
+      }
+      .wt-peek img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+      .wt-peek-label {
+        position: absolute;
+        z-index: 3;
+        left: 14px;
+        bottom: 17px;
+        max-width: 74%;
+        padding: 9px 12px;
+        border-radius: 999px;
+        background: rgba(27, 22, 17, 0.88);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      }
+      .wt-tier-ribbon {
+        position: absolute;
+        z-index: 3;
+        left: 13px;
+        right: 13px;
+        bottom: 22px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+        padding: 8px;
+        border-radius: 17px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 14px 38px rgba(48, 31, 10, 0.23);
+        backdrop-filter: blur(8px);
+      }
+      .wt-tier {
+        padding: 8px 2px;
+        border-radius: 11px;
+        text-align: center;
+        background: #f5efe5;
+        color: #65594b;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+      }
+      .wt-tier b {
+        display: block;
+        margin-top: 3px;
+        color: #a87526;
+        font-size: 10px;
+      }
+      .wt-tier.black {
+        background: #1a1714;
+        color: #fff;
+      }
+      .wt-tier.black b {
+        color: #e3c17d;
+      }
+      .wt-chapters {
+        display: grid;
+        gap: 7px;
+        align-self: center;
+      }
+      .wt-chapter {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        align-items: center;
+        gap: 9px;
+        text-align: left;
+        border: 0;
+        border-left: 1px solid #dfcfb5;
+        background: transparent;
+        color: #8b7e6c;
+        padding: 10px 0 10px 14px;
+        transition: 0.2s;
+      }
+      .wt-chapter b {
+        font: 500 17px "Playfair Display";
+        color: #b7a58b;
+      }
+      .wt-chapter span {
+        line-height: 1.35;
+        font-size: 13px;
+      }
+      .wt-chapter.active {
+        border-left: 3px solid #b88a3b;
+        color: #2d251c;
+        padding-left: 12px;
+      }
+      .wt-chapter.active b {
+        color: #a87526;
+      }
+      .wt-controls {
+        display: grid;
+        grid-template-columns: 1fr auto auto 1fr;
+        align-items: center;
+        gap: 22px;
+        min-height: 64px;
+      }
+      .wt-back {
+        justify-self: end;
+        border: 0;
+        background: transparent;
+        color: #756957;
+        padding: 14px 8px;
+        min-width: 60px;
+      }
+      .wt-back:disabled {
+        opacity: 0.28;
+        cursor: default;
+      }
+      .wt-dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+      }
+      .wt-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        border: 0;
+        background: #d9ccb7;
+        padding: 0;
+        transition: 0.25s;
+      }
+      .wt-dot.active {
+        width: 30px;
+        background: #b88a3b;
+      }
+      .wt-next {
+        justify-self: start;
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 142px;
+        min-height: 50px;
+        border: 1px solid #b88a3b;
+        background: #b88a3b;
+        color: #fff;
+        padding: 0 20px;
+        box-shadow: 0 12px 30px rgba(154, 103, 31, 0.18);
+        transition: 0.22s;
+      }
+      .wt-next:hover {
+        background: #a67429;
+        transform: translateY(-2px);
+      }
+      .wt-next i {
+        font-style: normal;
+        font-size: 20px;
+        font-weight: 400;
+      }
+      .wt-hint {
+        justify-self: end;
+        color: #9a8d7b;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+      }
+      .wt-launch {
+        position: fixed;
+        z-index: 35;
+        right: 18px;
+        bottom: 18px;
+        border: 1px solid #c39a55;
+        background: #fff;
+        color: #2b231b;
+        min-height: 46px;
+        padding: 0 17px;
+        box-shadow: 0 12px 36px rgba(30, 20, 8, 0.18);
+      }
+      body.walkthrough-open .wt-launch {
+        display: none;
+      }
+      .wt-replay {
+        border: 0;
+        background: transparent;
+        color: #f7f0e5;
+        padding: 8px 0;
+      }
+      .wt-replay:hover {
+        color: #e7ca91;
+      }
+      @media (max-width: 1050px) {
+        .wt-main {
+          grid-template-columns: minmax(280px, 1fr) auto;
+          gap: clamp(26px, 5vw, 58px);
+        }
+        .wt-chapters {
+          display: none;
+        }
+        .wt-copy {
+          justify-self: end;
+        }
+        .wt-hint {
+          visibility: hidden;
+        }
+      }
+      @media (max-width: 720px) {
+        .wt-shell {
+          padding: 9px 15px 12px;
+          gap: 6px;
+        }
+        .wt-top {
+          min-height: 42px;
+        }
+        .wt-logo {
+          width: 100px;
+          height: 40px;
+        }
+        .wt-skip {
+          font-size: 13px;
+        }
+        .wt-main {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr;
+          gap: 8px;
+          align-items: start;
+          overflow: hidden;
+        }
+        .wt-copy {
+          max-width: 380px;
+          justify-self: center;
+          text-align: center;
+        }
+        .wt-count {
+          justify-content: center;
+          font-size: 10px;
+          gap: 8px;
+        }
+        .wt-count:before {
+          width: 24px;
+        }
+        .wt-title {
+          font-size: clamp(27px, 8vw, 34px);
+          line-height: 1.02;
+          margin: 6px auto 7px;
+          max-width: 355px;
+        }
+        .wt-body {
+          font-size: 14px;
+          line-height: 1.45;
+          margin: 0 auto 9px;
+          max-width: 350px;
+        }
+        .wt-features {
+          display: flex;
+          justify-content: center;
+          gap: 7px;
+        }
+        .wt-feature {
+          min-height: 0;
+          padding: 7px 11px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.76);
+        }
+        .wt-feature-icon,
+        .wt-feature span {
+          display: none;
+        }
+        .wt-feature strong {
+          font-size: 12px;
+          margin: 0;
+          white-space: nowrap;
+        }
+        .wt-phone {
+          height: min(52dvh, 485px);
+          justify-self: center;
+          padding: 6px;
+          border-radius: 34px;
+          box-shadow:
+            0 24px 55px rgba(54, 37, 15, 0.22),
+            0 0 0 1px #cba55f,
+            0 0 0 4px rgba(255, 255, 255, 0.72);
+        }
+        .wt-phone:before {
+          top: 6px;
+          height: 18px;
+          border-radius: 0 0 11px 11px;
+        }
+        .wt-viewport {
+          border-radius: 28px;
+        }
+        .wt-peek {
+          right: 8px;
+          bottom: 39px;
+          border-width: 3px;
+          border-radius: 15px;
+        }
+        .wt-peek-label {
+          left: 9px;
+          bottom: 10px;
+          max-width: 70%;
+          padding: 7px 9px;
+          font-size: 10px;
+        }
+        .wt-tier-ribbon {
+          left: 8px;
+          right: 8px;
+          bottom: 13px;
+          padding: 5px;
+          border-radius: 12px;
+        }
+        .wt-tier {
+          padding: 6px 1px;
+          font-size: 7px;
+        }
+        .wt-tier b {
+          font-size: 8px;
+        }
+        .wt-controls {
+          grid-template-columns: 1fr auto 1fr;
+          min-height: 52px;
+          gap: 13px;
+        }
+        .wt-back {
+          font-size: 13px;
+        }
+        .wt-next {
+          min-width: 120px;
+          min-height: 46px;
+          padding: 0 16px;
+          font-size: 13px;
+        }
+        .wt-dot {
+          width: 7px;
+          height: 7px;
+        }
+        .wt-dot.active {
+          width: 24px;
+        }
+        .wt-hint {
+          display: none;
+        }
+        .wt-replay {
+          display: none;
+        }
+        .wt-launch {
+          right: 12px;
+          bottom: 73px;
+          min-height: 42px;
+          padding: 0 13px;
+          font-size: 12px;
+        }
+      }
+      @media (max-height: 690px) and (max-width: 720px) {
+        .wt-body {
+          display: none;
+        }
+        .wt-phone {
+          height: 50dvh;
+        }
+        .wt-title {
+          font-size: 26px;
+        }
+        .wt-feature {
+          padding: 6px 9px;
+        }
+        .wt-top {
+          min-height: 36px;
+        }
+        .wt-controls {
+          min-height: 46px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .wt-track,
+        .wt-next {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="walkthrough-open">
+    <!-- Walk Through Section -->
+    <section
+      class="wt-overlay"
+      id="leMeowWalkthrough"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="wtTitle"
+    >
+      <div class="wt-shell">
+        <div class="wt-top">
+          <img class="wt-logo" src="images/le-meow-logo.png" alt="Le Meow" />
+          <button class="wt-skip" id="wtSkip" type="button">
+            Skip walkthrough
+          </button>
+        </div>
+        <div class="wt-main">
+          <div class="wt-copy" aria-live="polite">
+            <div class="wt-count" id="wtCount">01 / 04 · Phase 2</div>
+            <h1 class="wt-title" id="wtTitle">
+              The new Le Meow, <em>made around you.</em>
+            </h1>
+            <p class="wt-body" id="wtBody">
+              A cleaner home, more services and a personalised feed shaped by
+              the interests you choose.
+            </p>
+            <div class="wt-features">
+              <div class="wt-feature">
+                <div class="wt-feature-icon">✦</div>
+                <strong id="wtFeatureOne">New Phase 2 screens</strong
+                ><span id="wtFeatureOneCopy"
+                  >A simpler home for every service.</span
+                >
+              </div>
+              <div class="wt-feature">
+                <div class="wt-feature-icon">♡</div>
+                <strong id="wtFeatureTwo">Customised feeds</strong
+                ><span id="wtFeatureTwoCopy"
+                  >Fresh content selected for you.</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="wt-phone"
+            aria-label="Interactive preview of four Le Meow onboarding screens"
+          >
+            <div class="wt-viewport" id="wtViewport">
+              <div class="wt-track" id="wtTrack">
+                <article
+                  class="wt-slide"
+                  aria-label="New Phase 2 screens and customised feeds"
+                >
+                  <img
+                    class="wt-primary"
+                    src="images/mobile-home.png"
+                    alt="Le Meow Phase 2 personalised home screen"
+                  />
+                  <!-- <div class="wt-peek">
+                    <img
+                      src="images/step-1-img-2.png"
+                      alt="Le Meow customised feed screen"
+                    />
+                  </div> -->
+                  <span class="wt-peek-label">Your feed, your interests</span>
+                </article>
+                <article
+                  class="wt-slide"
+                  aria-label="Enhanced membership rewards and wallet"
+                >
+                  <img
+                    class="wt-primary"
+                    src="images/mobile-wallet.png"
+                    alt="Le Meow wallet, rewards and tier progress screen"
+                  />
+                  <div
+                    class="wt-tier-ribbon"
+                    aria-label="Membership earning tiers"
+                  >
+                    <div class="wt-tier">WHITE<b>1×</b></div>
+                    <div class="wt-tier">SILVER<b>1.25×</b></div>
+                    <div class="wt-tier">GOLD<b>1.5×</b></div>
+                    <div class="wt-tier black">BLACK<b>2×</b></div>
+                  </div>
+                </article>
+                <article
+                  class="wt-slide"
+                  aria-label="Discovery and gift vouchers"
+                >
+                  <img
+                    class="wt-primary"
+                    src="images/mobile-home.png"
+                    alt="Le Meow Discovery community stories screen"
+                  />
+                  <!-- <div class="wt-peek">
+                    <img
+                      src="images/step-3-img-2.png"
+                      alt="Le Meow gift voucher screen"
+                    />
+                  </div> -->
+                  <span class="wt-peek-label">Gift joy in a few taps</span>
+                </article>
+                <article
+                  class="wt-slide"
+                  aria-label="Featured highlights and exclusive deals"
+                >
+                  <img
+                    class="wt-primary"
+                    src="images/mobile-deals.png"
+                    alt="Le Meow home screen with featured highlights"
+                  />
+                  <!-- <div class="wt-peek">
+                    <img
+                      src="images/step-4-img-2.png"
+                      alt="Le Meow exclusive deals screen"
+                    />
+                  </div> -->
+                  <span class="wt-peek-label"
+                    >Highlights meet member deals</span
+                  >
+                </article>
+              </div>
+            </div>
+          </div>
+          <nav class="wt-chapters" aria-label="Walkthrough chapters">
+            <button class="wt-chapter active" type="button" data-screen="0">
+              <b>01</b><span>New home<br />&amp; feeds</span>
+            </button>
+            <button class="wt-chapter" type="button" data-screen="1">
+              <b>02</b><span>Rewards<br />&amp; wallet</span>
+            </button>
+            <button class="wt-chapter" type="button" data-screen="2">
+              <b>03</b><span>Discover<br />&amp; gift</span>
+            </button>
+            <button class="wt-chapter" type="button" data-screen="3">
+              <b>04</b><span>Highlights<br />&amp; deals</span>
+            </button>
+          </nav>
+        </div>
+        <div class="wt-controls">
+          <span class="wt-hint">Swipe or use your arrow keys</span>
+          <button class="wt-back" id="wtBack" type="button" disabled>
+            Back
+          </button>
+          <div class="wt-dots" aria-label="Walkthrough progress">
+            <button
+              class="wt-dot active"
+              type="button"
+              data-screen="0"
+              aria-label="Show screen 1"
+            ></button>
+            <button
+              class="wt-dot"
+              type="button"
+              data-screen="1"
+              aria-label="Show screen 2"
+            ></button>
+            <button
+              class="wt-dot"
+              type="button"
+              data-screen="2"
+              aria-label="Show screen 3"
+            ></button>
+            <button
+              class="wt-dot"
+              type="button"
+              data-screen="3"
+              aria-label="Show screen 4"
+            ></button>
+          </div>
+          <button class="wt-next" id="wtNext" type="button">
+            <span>Next</span><i aria-hidden="true">→</i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navbar -->
+    <nav class="nav wrap">
+      <a class="brand" href="#top">Le <i>Destin</i></a>
+      <div class="links">
+        <a href="#how">How it works</a><a href="#experiences">Experiences</a
+        ><a href="#membership">Membership</a
+        ><button class="wt-replay" id="wtReplay" type="button">
+          Le Meow Phase 2</button
+        ><a
+          class="btn ghost"
+          href="https://forms.gle/tJCERFqTBprF7sJf7"
+          target="_blank"
+          rel="noopener"
+          >Create your profile</a
+        >
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="hero" id="top">
+      <video
+        class="hero-video"
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source src="images/hero-bg-video.mp4" type="video/mp4" />
+      </video>
+      <div class="wrap">
+        <div class="hero-copy">
+          <div class="eyebrow">Curated matchmaking · Singapore</div>
+          <h1>Meet by <em>design.</em><br />Connect by destiny.</h1>
+          <p>
+            Thoughtful introductions, real-world chemistry and beautifully
+            curated experiences for people ready for something meaningful.
+          </p>
+          <div class="actions">
+            <a
+              class="btn"
+              href="https://forms.gle/tJCERFqTBprF7sJf7"
+              target="_blank"
+              rel="noopener"
+              >Apply to join</a
+            ><a class="btn ghost" href="#how">Discover Le Destin</a>
+          </div>
+          <div class="trust">
+            <span>Human-curated profiles</span><span>Private & intentional</span
+            ><span>Real Singapore experiences</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Body -->
+    <main>
+      <section class="section">
+        <div class="wrap intro">
+          <div class="portrait" aria-label="Elegant social gathering"></div>
+          <div>
+            <div class="eyebrow">More than swiping</div>
+            <h2>Your story deserves a better beginning.</h2>
+            <p>
+              Le Destin brings people together through curated profiles and
+              shared experiences—not endless scrolling. We look beyond a
+              photograph to understand personality, values, lifestyle and what a
+              meaningful connection looks like to you.
+            </p>
+            <p>
+              Every selected member enters a considered community and can use
+              Match Credit to unlock introductions, social games and memorable
+              dates.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#experiences">Explore experiences</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section steps" id="how">
+        <div class="wrap">
+          <div class="head">
+            <div class="eyebrow">A more intentional path</div>
+            <h2>From profile to possibility</h2>
+            <p>
+              A guided journey designed to move naturally from discovery to an
+              authentic face-to-face connection.
+            </p>
+          </div>
+          <div class="grid3">
+            <article class="step">
+              <b>01</b>
+              <h3>Create your profile</h3>
+              <p>
+                Tell us who you are, what matters to you and the type of
+                connection you hope to find.
+              </p>
+            </article>
+            <article class="step">
+              <b>02</b>
+              <h3>Complete selection</h3>
+              <p>
+                Successful candidates are notified privately and invited to
+                submit their profile photographs.
+              </p>
+            </article>
+            <article class="step">
+              <b>03</b>
+              <h3>Meet with meaning</h3>
+              <p>
+                Receive Match Credit and join curated introductions, games and
+                experiences chosen for real chemistry.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section credit">
+        <div class="wrap credit-inner">
+          <div>
+            <div class="eyebrow">One currency, many possibilities</div>
+            <h2>Meet Match Credit.</h2>
+            <p>
+              Your passport to Le Destin. Purchase or receive Match Credit
+              through your membership, then use it across introductions, Fish
+              Pool social events, games and curated experiences.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#membership">View membership</a
+              ><a class="btn ghost" href="#faq">How it works</a>
+            </div>
+          </div>
+          <div class="coin">
+            <div><strong>MC</strong><small>Match Credit</small></div>
+          </div>
+        </div>
+      </section>
+      <section class="section experiences" id="experiences">
+        <div class="wrap">
+          <div class="head">
+            <div class="eyebrow">Designed for genuine chemistry</div>
+            <h2>Experiences worth remembering</h2>
+            <p>
+              From easy first conversations to playful adventures, every format
+              gives connection somewhere natural to grow.
+            </p>
+          </div>
+          <div class="cards" id="eventsGrid" data-fallback="true">
+            <article class="card">
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85&quot;);
+                "
+              ></div>
+              <div class="card-body">
+                <span class="tag">Upcoming event</span>
+                <h3>Garden Picnic Social</h3>
+                <p>Outdoor picnic mixer with light bites and lawn games.</p>
+                <div class="card-meta">
+                  <span class="card-pill">Gardens by the Bay</span>
+                  <span class="card-pill">45 spots left</span>
+                  <span class="card-pill">SGD 150</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=1200&q=85&quot;);
+                "
+              ></div>
+              <div class="card-body">
+                <span class="tag">Upcoming event</span>
+                <h3>Board Game Café Night</h3>
+                <p>Team up over board games in a relaxed café setting.</p>
+                <div class="card-meta">
+                  <span class="card-pill">Mox Boarding House</span>
+                  <span class="card-pill">28 spots left</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85&quot;);
+                "
+              ></div>
+              <div class="card-body">
+                <span class="tag">Upcoming event</span>
+                <h3>Rooftop Yoga & Coffee</h3>
+                <p>Morning yoga session followed by coffee and conversation.</p>
+                <div class="card-meta">
+                  <span class="card-pill">1-Arden, Funan</span>
+                  <span class="card-pill">25 spots left</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1200&q=85&quot;);
+                "
+              ></div>
+              <div class="card-body">
+                <span class="tag">Upcoming event</span>
+                <h3>Karaoke Night Out</h3>
+                <p>
+                  Group karaoke rooms for singles to mix, sing, and laugh
+                  together.
+                </p>
+                <div class="card-meta">
+                  <span class="card-pill">K Box, Orchard</span>
+                  <span class="card-pill">32 spots left</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=85&quot;);
+                "
+              ></div>
+              <div class="card-body">
+                <span class="tag">Upcoming event</span>
+                <h3>New singles events soon</h3>
+                <p>More curated gatherings are added as new dates open.</p>
+                <div class="card-meta">
+                  <span class="card-pill">Singapore</span>
+                  <span class="card-pill">Limited seats</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section membership" id="membership">
+        <div class="wrap">
+          <div class="head">
+            <div class="eyebrow">Choose your journey</div>
+            <h2>Membership that moves with you</h2>
+            <p>
+              Each pathway offers a different level of guidance, access and
+              Match Credit. Final inclusions and enrolment details are shared
+              during selection.
+            </p>
+          </div>
+          <div class="tiers" id="membershipTiers" data-fallback="true">
+            <article class="tier">
+              <span class="sub">Start thoughtfully</span>
+              <h3>Essential</h3>
+              <div class="tier-price">
+                <strong>SGD 19.90</strong><span>/ month</span>
+              </div>
+              <div class="tier-yearly">SGD 1000 yearly</div>
+              <ul>
+                <li>20 daily matches</li>
+                <li>Selected event access</li>
+                <li>Match Credit eligibility</li>
+                <li>Community invitations</li>
+              </ul>
+            </article>
+            <article class="tier">
+              <span class="sub">Build momentum</span>
+              <h3>Standard</h3>
+              <div class="tier-price">
+                <strong>SGD 49</strong><span>/ month</span>
+              </div>
+              <div class="tier-yearly">SGD 499 yearly</div>
+              <ul>
+                <li>5 daily matches</li>
+                <li>Core profile guidance</li>
+                <li>Match Credit eligibility</li>
+                <li>Standard discovery access</li>
+              </ul>
+            </article>
+            <article class="tier featured">
+              <span class="sub">Most immersive</span>
+              <h3>Premium</h3>
+              <div class="tier-price">
+                <strong>SGD 99</strong><span>/ month</span>
+              </div>
+              <div class="tier-yearly">SGD 999 yearly</div>
+              <ul>
+                <li>10 daily matches</li>
+                <li>Selected event access</li>
+                <li>Enhanced matchmaking support</li>
+                <li>Priority introductions</li>
+              </ul>
+            </article>
+            <article class="tier">
+              <span class="sub">Highly personalised</span>
+              <h3>Elite</h3>
+              <div class="tier-price">
+                <strong>SGD 145.90</strong><span>/ month</span>
+              </div>
+              <div class="tier-yearly">SGD 2500 yearly</div>
+              <ul>
+                <li>50 daily matches</li>
+                <li>20 bonus Match Credits</li>
+                <li>Dedicated guidance</li>
+                <li>Elevated priority access</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="signup">
+        <div class="wrap signup-box">
+          <div class="eyebrow">Your next chapter may start here</div>
+          <h2>Ready to meet differently?</h2>
+          <p>
+            Apply for a curated Le Destin profile. Selected candidates will be
+            contacted to submit photographs and complete their member profile.
+          </p>
+          <!-- <div class="reward">
+            Selected profiles receive $28 in Match Credit
+          </div> -->
+          <div class="actions">
+            <a
+              class="btn"
+              href="https://forms.gle/tJCERFqTBprF7sJf7"
+              target="_blank"
+              rel="noopener"
+              >Begin your application</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="section" id="faq">
+        <div class="wrap faq">
+          <div class="head" style="text-align: left; margin-left: 0">
+            <div class="eyebrow">Questions, answered</div>
+            <h2>Before you begin</h2>
+          </div>
+          <details>
+            <summary>Is Le Destin a dating app?</summary>
+            <p>
+              Le Destin is a curated matchmaking and experiences platform.
+              Technology supports the journey, while the emphasis stays on
+              considered profiles, real introductions and genuine face-to-face
+              connection.
+            </p>
+          </details>
+          <details>
+            <summary>What is Match Credit?</summary>
+            <p>
+              Match Credit is used to access participating Le Destin games,
+              introductions and experiences. It may be purchased, gifted or
+              included with eligible memberships and campaigns.
+            </p>
+          </details>
+          <details>
+            <summary>Does every applicant receive a profile?</summary>
+            <p>
+              Applications are reviewed to maintain a thoughtful community.
+              Successful candidates are notified to submit photographs and
+              complete the next steps.
+            </p>
+          </details>
+          <details>
+            <summary>What happens at a Fish Pool event?</summary>
+            <p>
+              It is a curated group experience designed to make introductions
+              natural through guided conversations, games and shared
+              moments—without awkward speed-dating pressure.
+            </p>
+          </details>
+          <details>
+            <summary>Where are experiences held?</summary>
+            <p>
+              Experiences take place at selected venues across Singapore. Each
+              invitation includes its exact location, format and Match Credit
+              requirement.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="section reviews" id="stories">
+        <div class="wrap">
+          <div class="head">
+            <div class="eyebrow">Real connections</div>
+            <h2>Reviews</h2>
+            <p>
+              Thoughtful introductions can become something beautifully
+              unexpected.
+            </p>
+          </div>
+          <div class="review-grid" id="reviewsGrid" data-fallback="true">
+            <article class="review">
+              <div
+                class="review-photo"
+                role="img"
+                aria-label="Jia Min and Marcus"
+                style="
+                  background-image: url(&quot;https://unsplash.com/photos/75DGhb2LFnw/download?force=true&w=900&quot;);
+                "
+              ></div>
+              <div class="review-copy">
+                <div class="stars">★★★★★</div>
+                <p class="quote">
+                  “It felt natural from the first conversation—no awkward
+                  swiping, just a genuinely thoughtful introduction.”
+                </p>
+                <div class="names">Jia Min &amp; Marcus · Singapore</div>
+                <span class="verified">Le Destin couple story</span>
+              </div>
+            </article>
+            <article class="review">
+              <div
+                class="review-photo"
+                role="img"
+                aria-label="Rachel and Ethan"
+                style="
+                  background-image: url(&quot;https://unsplash.com/photos/pqClnxdDIEQ/download?force=true&w=900&quot;);
+                "
+              ></div>
+              <div class="review-copy">
+                <div class="stars">★★★★★</div>
+                <p class="quote">
+                  “The experience gave us something fun to share, and the
+                  connection grew without any pressure.”
+                </p>
+                <div class="names">Rachel &amp; Ethan · Singapore</div>
+                <span class="verified">Le Destin couple story</span>
+              </div>
+            </article>
+            <article class="review">
+              <div
+                class="review-photo"
+                role="img"
+                aria-label="Cheryl and Daniel"
+                style="
+                  background-image: url(&quot;https://unsplash.com/photos/BSSA2RuzAt8/download?force=true&w=900&quot;);
+                "
+              ></div>
+              <div class="review-copy">
+                <div class="stars">★★★★★</div>
+                <p class="quote">
+                  “We joined expecting a lovely evening. We left already
+                  planning our second date.”
+                </p>
+                <div class="names">Cheryl &amp; Daniel · Singapore</div>
+                <span class="verified">Le Destin couple story</span>
+              </div>
+            </article>
+          </div>
+          <!-- <p
+            style="
+              text-align: center;
+              color: var(--muted);
+              font-size: 12px;
+              margin-top: 24px;
+            "
+          >
+            Names and photographs are illustrative placeholders until approved
+            member stories are provided.
+          </p> -->
+        </div>
+      </section>
+      <section class="section moments" id="moments">
+        <div class="wrap">
+          <div class="head">
+            <div class="eyebrow">Real people · Real possibilities</div>
+            <h2>More moments, more ways to connect</h2>
+            <p>
+              Elegant dinners, playful dates and easy laughter—Le Destin creates
+              the setting, while you create the story.
+            </p>
+          </div>
+          <div
+            class="moment-grid event-grid"
+            id="venuesGrid"
+            data-fallback="true"
+          >
+            <article
+              class="moment hero-moment event-card"
+              style="
+                background-image: url(&quot;https://meow-service-test.flutterclone.com/storage/images/le_destin_venues/6a98fa952e8bf_1788410517.webp&quot;);
+              "
+            >
+              <div class="event-copy">
+                <div class="event-kicker">Date venue</div>
+                <h3>Gardens by the Bay</h3>
+                <p>
+                  Iconic waterfront gardens with the Supertree Grove and Flower
+                  Dome — a scenic, relaxed spot for a first date.
+                </p>
+                <div class="event-meta">
+                  <span class="event-pill">18 Marina Gardens Dr</span>
+                  <span class="event-pill">23 credits</span>
+                </div>
+              </div>
+            </article>
+            <article
+              class="moment small event-card"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1400&q=85&quot;);
+              "
+            >
+              <div class="event-copy">
+                <div class="event-kicker">Date venue</div>
+                <h3>Clarke Quay</h3>
+                <div class="event-meta">
+                  <span class="event-pill">3 River Valley Rd</span>
+                  <span class="event-pill">No credit cost</span>
+                </div>
+              </div>
+            </article>
+            <article
+              class="moment small event-card"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1400&q=85&quot;);
+              "
+            >
+              <div class="event-copy">
+                <div class="event-kicker">Date venue</div>
+                <h3>Marina Bay Sands SkyPark</h3>
+                <div class="event-meta">
+                  <span class="event-pill">10 Bayfront Ave</span>
+                  <span class="event-pill">No credit cost</span>
+                </div>
+              </div>
+            </article>
+            <article
+              class="moment small event-card"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85&quot;);
+              "
+            >
+              <div class="event-copy">
+                <div class="event-kicker">Date venue</div>
+                <h3>Sentosa Island</h3>
+                <div class="event-meta">
+                  <span class="event-pill">39 Artillery Ave</span>
+                  <span class="event-pill">No credit cost</span>
+                </div>
+              </div>
+            </article>
+            <article
+              class="moment small event-card"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1400&q=85&quot;);
+              "
+            >
+              <div class="event-copy">
+                <div class="event-kicker">Date venue</div>
+                <h3>Tiong Bahru</h3>
+                <div class="event-meta">
+                  <span class="event-pill">Singapore</span>
+                  <span class="event-pill">No credit cost</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="moment-note" id="venuesNote">
+            Live Le Destin date venues. Availability and Match Credit costs
+            update automatically.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="foot">
+          <div>
+            <a class="brand" href="#top">Le <i>Destin</i></a>
+            <p>Curated connections. Meaningful experiences.</p>
+          </div>
+          <div>
+            <div class="eyebrow">Begin</div>
+            <p>
+              <a
+                href="https://forms.gle/tJCERFqTBprF7sJf7"
+                target="_blank"
+                rel="noopener"
+                >Create your profile →</a
+              ><br /><a href="#experiences">Explore experiences</a><br /><a
+                href="#membership"
+                >Membership</a
+              >
+            </p>
+          </div>
+        </div>
+        <small
+          >© 2026 Le Destin. Singapore. Experiences, availability and selection
+          criteria are subject to change.</small
+        >
+      </div>
+    </footer>
+
+    <!-- Contact form btn link -->
+    <div class="mobile-cta">
+      <a
+        class="btn"
+        href="https://forms.gle/tJCERFqTBprF7sJf7"
+        target="_blank"
+        rel="noopener"
+        >Apply to Le Destin</a
+      >
+    </div>
+
+    <!-- Replay Btn -->
+    <button class="wt-launch" id="wtReplayFab" type="button">
+      Replay Le Meow walkthrough
+    </button>
+
+    <!-- Scripts -->
+    <script src="reviews.js"></script>
+    <script src="membership.js"></script>
+    <script src="events.js"></script>
+    <script src="venues.js"></script>
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((a) =>
+        a.addEventListener("click", (e) => {
+          const t = document.querySelector(a.getAttribute("href"));
+          if (t) {
+            e.preventDefault();
+            t.scrollIntoView({ behavior: "smooth" });
+          }
+        }),
+      );
+
+      (() => {
+        const hero = document.querySelector(".hero");
+        const video = document.querySelector(".hero-video");
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        );
+        if (!hero || !video || reduceMotion.matches) return;
+
+        function revealVideo() {
+          video
+            .play()
+            .then(() => hero.classList.add("video-ready"))
+            .catch(() => hero.classList.remove("video-ready"));
+        }
+
+        if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
+          revealVideo();
+        } else {
+          video.addEventListener("canplaythrough", revealVideo, { once: true });
+        }
+      })();
+
+      (() => {
+        const screens = [
+          {
+            count: "01 / 04 · Phase 2",
+            title: "The new Le Meow, <em>made around you.</em>",
+            body: "A cleaner home, more services and a personalised feed shaped by the interests you choose.",
+            one: "New Phase 2 screens",
+            oneCopy: "A simpler home for every service.",
+            two: "Customised feeds",
+            twoCopy: "Fresh content selected for you.",
+          },
+          {
+            count: "02 / 04 · Membership",
+            title: "Every booking should <em>give you more.</em>",
+            body: "See your wallet, points, rewards and progress from White to Black membership in one clear place.",
+            one: "Enhanced tiers & rewards",
+            oneCopy: "Unlock richer benefits as you grow.",
+            two: "Wallet at a glance",
+            twoCopy: "Top up, pay and track every reward.",
+          },
+          {
+            count: "03 / 04 · Community",
+            title: "Discover it. Love it. <em>Gift it.</em>",
+            body: "Explore real stories from the Le Meow community, then send someone a thoughtful gift in a few taps.",
+            one: "Discovery",
+            oneCopy: "Real moments across every service.",
+            two: "Gift vouchers",
+            twoCopy: "Choose, send and redeem with ease.",
+          },
+          {
+            count: "04 / 04 · Just for you",
+            title: "The best of Le Meow, <em>right up front.</em>",
+            body: "Catch fresh featured highlights and book exclusive deals across beauty, education, home, lifestyle and Le Destin.",
+            one: "Featured highlights",
+            oneCopy: "Short stories worth seeing now.",
+            two: "Exclusive deals",
+            twoCopy: "Member offers chosen for you.",
+          },
+        ];
+        const overlay = document.getElementById("leMeowWalkthrough");
+        const track = document.getElementById("wtTrack");
+        const viewport = document.getElementById("wtViewport");
+        const back = document.getElementById("wtBack");
+        const next = document.getElementById("wtNext");
+        const skip = document.getElementById("wtSkip");
+        const dots = [...document.querySelectorAll(".wt-dot")];
+        const chapters = [...document.querySelectorAll(".wt-chapter")];
+        const slides = [...document.querySelectorAll(".wt-slide")];
+        const fields = {
+          count: document.getElementById("wtCount"),
+          title: document.getElementById("wtTitle"),
+          body: document.getElementById("wtBody"),
+          one: document.getElementById("wtFeatureOne"),
+          oneCopy: document.getElementById("wtFeatureOneCopy"),
+          two: document.getElementById("wtFeatureTwo"),
+          twoCopy: document.getElementById("wtFeatureTwoCopy"),
+        };
+        let current = 0;
+        let startX = null;
+
+        function show(index) {
+          current = Math.max(0, Math.min(screens.length - 1, index));
+          const screen = screens[current];
+          track.style.transform = `translateX(-${current * 100}%)`;
+          fields.count.textContent = screen.count;
+          fields.title.innerHTML = screen.title;
+          fields.body.textContent = screen.body;
+          fields.one.textContent = screen.one;
+          fields.oneCopy.textContent = screen.oneCopy;
+          fields.two.textContent = screen.two;
+          fields.twoCopy.textContent = screen.twoCopy;
+          back.disabled = current === 0;
+          next.querySelector("span").textContent =
+            current === screens.length - 1 ? "Enter Le Destin" : "Next";
+          next.querySelector("i").textContent =
+            current === screens.length - 1 ? "✓" : "→";
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === current);
+            dot.setAttribute("aria-current", i === current ? "step" : "false");
+          });
+          chapters.forEach((chapter, i) => {
+            chapter.classList.toggle("active", i === current);
+            chapter.setAttribute(
+              "aria-current",
+              i === current ? "step" : "false",
+            );
+          });
+          slides.forEach((slide, i) =>
+            slide.setAttribute("aria-hidden", i === current ? "false" : "true"),
+          );
+        }
+
+        function closeWalkthrough() {
+          overlay.hidden = true;
+          document.body.classList.remove("walkthrough-open");
+          document.getElementById("wtReplayFab").focus({ preventScroll: true });
+        }
+
+        function openWalkthrough() {
+          overlay.hidden = false;
+          document.body.classList.add("walkthrough-open");
+          show(0);
+          requestAnimationFrame(() => next.focus({ preventScroll: true }));
+        }
+
+        next.addEventListener("click", () =>
+          current === screens.length - 1
+            ? closeWalkthrough()
+            : show(current + 1),
+        );
+        back.addEventListener("click", () => show(current - 1));
+        skip.addEventListener("click", closeWalkthrough);
+        document
+          .getElementById("wtReplay")
+          .addEventListener("click", openWalkthrough);
+        document
+          .getElementById("wtReplayFab")
+          .addEventListener("click", openWalkthrough);
+        [...dots, ...chapters].forEach((control) =>
+          control.addEventListener("click", () =>
+            show(Number(control.dataset.screen)),
+          ),
+        );
+        viewport.addEventListener("pointerdown", (event) => {
+          startX = event.clientX;
+        });
+        viewport.addEventListener("pointerup", (event) => {
+          if (startX === null) return;
+          const distance = event.clientX - startX;
+          startX = null;
+          if (Math.abs(distance) > 42) show(current + (distance < 0 ? 1 : -1));
+        });
+        viewport.addEventListener("pointercancel", () => {
+          startX = null;
+        });
+        document.addEventListener("keydown", (event) => {
+          if (overlay.hidden) return;
+          if (event.key === "ArrowRight") {
+            event.preventDefault();
+            show(current + 1);
+          }
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            show(current - 1);
+          }
+          if (event.key === "Escape") {
+            event.preventDefault();
+            closeWalkthrough();
+          }
+          if (event.key === "Tab") {
+            const focusable = [
+              ...overlay.querySelectorAll("button:not(:disabled)"),
+            ];
+            const first = focusable[0],
+              last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first.focus();
+            }
+          }
+        });
+        show(0);
+      })();
+    </script>
+  </body>
+</html>

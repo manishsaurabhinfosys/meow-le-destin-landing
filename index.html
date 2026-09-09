@@ -454,6 +454,170 @@
         margin: 12px 0 10px;
         color: #ecd49f;
       }
+      /* Le Destin Contact Form Styles */
+      .signup-box {
+        max-width: 760px;
+        text-align: center;
+      }
+      .ld-contact-form {
+        background: rgba(18, 13, 9, 0.78);
+        border: 1px solid rgba(213, 184, 124, 0.32);
+        border-radius: 20px;
+        padding: 36px 32px;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        margin-top: 36px;
+        text-align: left;
+      }
+      .ld-form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 24px;
+      }
+      .ld-field-group {
+        display: flex;
+        flex-direction: column;
+      }
+      .ld-field-full,
+      .ld-type-textarea {
+        grid-column: 1 / -1;
+      }
+      .ld-label {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #e7ca91;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .ld-label .ld-req {
+        color: #f87171;
+      }
+      .ld-input,
+      .ld-field-group select,
+      .ld-field-group textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(213, 184, 124, 0.28);
+        border-radius: 10px;
+        padding: 13px 16px;
+        color: #f6efe6;
+        font-family: inherit;
+        font-size: 15px;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        box-sizing: border-box;
+      }
+      .ld-input:focus,
+      .ld-field-group select:focus,
+      .ld-field-group textarea:focus {
+        border-color: #e7ca91;
+        box-shadow: 0 0 0 3px rgba(231, 202, 145, 0.18);
+      }
+      .ld-field-group select option {
+        background: #1a140f;
+        color: #f6efe6;
+      }
+      .ld-checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 4px;
+      }
+      .ld-chk-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: #eee7db;
+        cursor: pointer;
+      }
+      .ld-chk-label input[type="checkbox"] {
+        accent-color: #d5b87c;
+        width: 16px;
+        height: 16px;
+      }
+      .ld-field-error {
+        color: #f87171;
+        font-size: 12px;
+        margin-top: 6px;
+        letter-spacing: 0.02em;
+      }
+      .ld-field-group.has-error .ld-input,
+      .ld-field-group.has-error select,
+      .ld-field-group.has-error textarea {
+        border-color: #f87171;
+      }
+      .ld-submit-wrap {
+        margin-top: 28px;
+        text-align: center;
+      }
+      .ld-submit-btn {
+        min-width: 220px;
+        cursor: pointer;
+      }
+      .ld-form-feedback {
+        padding: 14px 18px;
+        border-radius: 10px;
+        margin-bottom: 24px;
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .ld-feedback-success {
+        background: rgba(34, 197, 94, 0.15);
+        border: 1px solid rgba(34, 197, 94, 0.4);
+        color: #86efac;
+      }
+      .ld-feedback-error {
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.4);
+        color: #fca5a5;
+      }
+      .ld-form-loading,
+      .ld-form-empty,
+      .ld-form-error-box {
+        padding: 48px 24px;
+        text-align: center;
+        background: rgba(18, 13, 9, 0.6);
+        border: 1px solid rgba(213, 184, 124, 0.2);
+        border-radius: 16px;
+        margin-top: 28px;
+        color: #ecd49f;
+      }
+      .ld-spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid rgba(231, 202, 145, 0.2);
+        border-top-color: #e7ca91;
+        border-radius: 50%;
+        animation: ldSpin 0.8s linear infinite;
+        margin: 0 auto 16px;
+      }
+      .ld-mini-spinner {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: ldSpin 0.8s linear infinite;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+      @keyframes ldSpin {
+        to { transform: rotate(360deg); }
+      }
+      @media (max-width: 640px) {
+        .ld-form-grid {
+          grid-template-columns: 1fr;
+        }
+        .ld-contact-form {
+          padding: 24px 18px;
+        }
+      }
       .faq {
         max-width: 850px;
       }
@@ -1664,9 +1828,7 @@
           Le Meow Phase 2</button
         ><a
           class="btn ghost"
-          href="https://forms.gle/tJCERFqTBprF7sJf7"
-          target="_blank"
-          rel="noopener"
+          href="#contact"
           >Create your profile</a
         >
       </div>
@@ -2011,7 +2173,7 @@
           </div>
         </div>
       </section>
-      <section class="signup">
+      <section class="signup" id="contact">
         <div class="wrap signup-box">
           <div class="eyebrow">Your next chapter may start here</div>
           <h2>Ready to meet differently?</h2>
@@ -2019,18 +2181,7 @@
             Apply for a curated Le Destin profile. Selected candidates will be
             contacted to submit photographs and complete their member profile.
           </p>
-          <!-- <div class="reward">
-            Selected profiles receive $28 in Match Credit
-          </div> -->
-          <div class="actions">
-            <a
-              class="btn"
-              href="https://forms.gle/tJCERFqTBprF7sJf7"
-              target="_blank"
-              rel="noopener"
-              >Begin your application</a
-            >
-          </div>
+          <div id="leDestinContactFormContainer"></div>
         </div>
       </section>
       <section class="section" id="faq">
@@ -2279,9 +2430,7 @@
             <div class="eyebrow">Begin</div>
             <p>
               <a
-                href="https://forms.gle/tJCERFqTBprF7sJf7"
-                target="_blank"
-                rel="noopener"
+                href="#contact"
                 >Create your profile →</a
               ><br /><a href="#experiences">Explore experiences</a><br /><a
                 href="#membership"
@@ -2301,9 +2450,7 @@
     <div class="mobile-cta">
       <a
         class="btn"
-        href="https://forms.gle/tJCERFqTBprF7sJf7"
-        target="_blank"
-        rel="noopener"
+        href="#contact"
         >Apply to Le Destin</a
       >
     </div>
@@ -2318,6 +2465,7 @@
     <script src="membership.js"></script>
     <script src="events.js"></script>
     <script src="venues.js"></script>
+    <script src="contact.js"></script>
     <script>
       document.querySelectorAll('a[href^="#"]').forEach((a) =>
         a.addEventListener("click", (e) => {

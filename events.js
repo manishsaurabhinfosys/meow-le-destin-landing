@@ -3,6 +3,10 @@
     "https://meow-service-test.flutterclone.com/api/public/le-destin/singles-events/list?nopaginate=1&status=upcoming";
   const LE_DESTIN_SECRET =
     "pld_2f7a9c1e6b3d4f8081ac5e9d0b6f7a3c4e2d1b8f9a0c3e5d";
+  const APP_STORE_URL = "https://apps.apple.com/my/app/le-meow/id6763483119";
+  const GOOGLE_PLAY_URL =
+    "https://play.google.com/store/apps/details?id=com.meow.lemeow";
+  const LE_DESTIN_FORM_URL = "https://forms.gle/tJCERFqTBprF7sJf7";
   const eventsGrid = document.getElementById("eventsGrid");
   const eventFallbackImages = [
     {
@@ -91,6 +95,60 @@
     return pill;
   }
 
+  const APP_STORE_SVG = `<svg viewBox="-1 -2 26 28" fill="currentColor"><path d="M16.2 1.9c.1 1.1-.3 2.2-1 3-1 1.1-2.3 1.8-3.5 1.7-.1-1.1.4-2.2 1.1-3 1-1.1 2.4-1.8 3.4-1.7Zm3.7 16.8c-.6 1-1 1.5-1.8 2.4-1.1 1.2-2.6 2.7-4.5 2.7-1.7 0-2.1-.9-4.4-.9s-2.8.9-4.4 1c-1.8.1-3.1-1.3-4.2-2.5-2.3-2.5-4-7.2-1.7-10.4 1.1-1.6 3.1-2.6 5.3-2.6 1.7 0 3.2 1 4.3 1s2.9-1.2 4.9-1c.8 0 3.2.3 4.7 2.5-.1.1-2.8 1.6-2.8 4.9.1 3.9 3.5 5.2 3.6 5.2-.1.2-.4 1.1-1 2Z"/></svg>`;
+  const GOOGLE_PLAY_SVG = `<svg viewBox="0 0 24 24"><path fill="#34A853" d="M3.6 2.4 14.7 12 3.6 21.6V2.4Z"/><path fill="#FBBC04" d="m14.7 12 3.1-2.7 3.7 2.1c.7.4.7 1.5 0 1.9l-3.7 2.1-3.1-3.4Z"/><path fill="#4285F4" d="m3.6 2.4 14.2 6.9-3.1 2.7L3.6 2.4Z"/><path fill="#EA4335" d="m3.6 21.6 11.1-9.6 3.1 3.4-14.2 6.2Z"/></svg>`;
+  const FORM_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`;
+
+  function createActionButton(href, label, svg, className) {
+    const a = document.createElement("a");
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.className = className;
+    a.innerHTML = svg + `<span>${label}</span>`;
+    return a;
+  }
+
+  function createCardActions() {
+    const actions = document.createElement("div");
+    actions.className = "card-actions";
+
+    const formLabel = document.createElement("p");
+    formLabel.className = "card-actions-label card-actions-label-apply";
+    formLabel.textContent = "Interested? Apply to join Le Destin";
+
+    const formBtn = createActionButton(
+      LE_DESTIN_FORM_URL,
+      "Apply to join",
+      FORM_SVG,
+      "form-btn",
+    );
+
+    const bookLabel = document.createElement("p");
+    bookLabel.className = "card-actions-label card-actions-label-book";
+    bookLabel.textContent = "Book your slot via the Le Meow app";
+
+    const storeBtns = document.createElement("div");
+    storeBtns.className = "store-btns";
+    storeBtns.append(
+      createActionButton(
+        APP_STORE_URL,
+        "App Store",
+        APP_STORE_SVG,
+        "store-btn",
+      ),
+      createActionButton(
+        GOOGLE_PLAY_URL,
+        "Google Play",
+        GOOGLE_PLAY_SVG,
+        "store-btn",
+      ),
+    );
+
+    actions.append(formLabel, formBtn, bookLabel, storeBtns);
+    return actions;
+  }
+
   function fallbackImageForEvent(event) {
     const haystack = [event.title, event.description, event.location]
       .filter(Boolean)
@@ -150,6 +208,7 @@
 
       body.append(tag, title, description, meta);
       article.append(image, body);
+      article.append(createCardActions());
       eventsGrid.append(article);
     });
   }

@@ -1649,182 +1649,56 @@
       gtag('config', 'G-3ZLEB4YMWM');
     </script>
   </head>
-  <body class="walkthrough-open">
-    <!-- Walk Through Section -->
-    <section
-      class="wt-overlay"
-      id="leMeowWalkthrough"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="wtTitle"
-    >
+  <body>
+    <!-- Walk Through Section (commented out — loads home page directly) -->
+    <!--
+    <section class="wt-overlay" id="leMeowWalkthrough" role="dialog" aria-modal="true" aria-labelledby="wtTitle">
       <div class="wt-shell">
         <div class="wt-top">
           <img class="wt-logo" src="images/le-meow-logo.png" alt="Le Meow" />
-          <button class="wt-skip" id="wtSkip" type="button">
-            Skip walkthrough
-          </button>
+          <button class="wt-skip" id="wtSkip" type="button">Skip walkthrough</button>
         </div>
         <div class="wt-main">
           <div class="wt-copy" aria-live="polite">
             <div class="wt-count" id="wtCount">01 / 04 · Phase 2</div>
-            <h1 class="wt-title" id="wtTitle">
-              The new Le Meow, <em>made around you.</em>
-            </h1>
-            <p class="wt-body" id="wtBody">
-              A cleaner home, more services and a personalised feed shaped by
-              the interests you choose.
-            </p>
+            <h1 class="wt-title" id="wtTitle">The new Le Meow, <em>made around you.</em></h1>
+            <p class="wt-body" id="wtBody">A cleaner home, more services and a personalised feed shaped by the interests you choose.</p>
             <div class="wt-features">
-              <div class="wt-feature">
-                <div class="wt-feature-icon">✦</div>
-                <strong id="wtFeatureOne">New Phase 2 screens</strong
-                ><span id="wtFeatureOneCopy"
-                  >A simpler home for every service.</span
-                >
-              </div>
-              <div class="wt-feature">
-                <div class="wt-feature-icon">♡</div>
-                <strong id="wtFeatureTwo">Customised feeds</strong
-                ><span id="wtFeatureTwoCopy"
-                  >Fresh content selected for you.</span
-                >
-              </div>
+              <div class="wt-feature"><div class="wt-feature-icon">✦</div><strong id="wtFeatureOne">New Phase 2 screens</strong><span id="wtFeatureOneCopy">A simpler home for every service.</span></div>
+              <div class="wt-feature"><div class="wt-feature-icon">♡</div><strong id="wtFeatureTwo">Customised feeds</strong><span id="wtFeatureTwoCopy">Fresh content selected for you.</span></div>
             </div>
           </div>
-          <div
-            class="wt-phone"
-            aria-label="Interactive preview of four Le Meow onboarding screens"
-          >
+          <div class="wt-phone" aria-label="Interactive preview of four Le Meow onboarding screens">
             <div class="wt-viewport" id="wtViewport">
               <div class="wt-track" id="wtTrack">
-                <article
-                  class="wt-slide"
-                  aria-label="New Phase 2 screens and customised feeds"
-                >
-                  <img
-                    class="wt-primary"
-                    src="images/mobile-home.png"
-                    alt="Le Meow Phase 2 personalised home screen"
-                  />
-                  <!-- <div class="wt-peek">
-                    <img
-                      src="images/step-1-img-2.png"
-                      alt="Le Meow customised feed screen"
-                    />
-                  </div> -->
-                  <span class="wt-peek-label">Your feed, your interests</span>
-                </article>
-                <article
-                  class="wt-slide"
-                  aria-label="Enhanced membership rewards and wallet"
-                >
-                  <img
-                    class="wt-primary"
-                    src="images/mobile-wallet.png"
-                    alt="Le Meow wallet, rewards and tier progress screen"
-                  />
-                  <div
-                    class="wt-tier-ribbon"
-                    aria-label="Membership earning tiers"
-                  >
-                    <div class="wt-tier">WHITE<b>1×</b></div>
-                    <div class="wt-tier">SILVER<b>1.25×</b></div>
-                    <div class="wt-tier">GOLD<b>1.5×</b></div>
-                    <div class="wt-tier black">BLACK<b>2×</b></div>
-                  </div>
-                </article>
-                <article
-                  class="wt-slide"
-                  aria-label="Discovery and gift vouchers"
-                >
-                  <img
-                    class="wt-primary"
-                    src="images/mobile-home.png"
-                    alt="Le Meow Discovery community stories screen"
-                  />
-                  <!-- <div class="wt-peek">
-                    <img
-                      src="images/step-3-img-2.png"
-                      alt="Le Meow gift voucher screen"
-                    />
-                  </div> -->
-                  <span class="wt-peek-label">Gift joy in a few taps</span>
-                </article>
-                <article
-                  class="wt-slide"
-                  aria-label="Featured highlights and exclusive deals"
-                >
-                  <img
-                    class="wt-primary"
-                    src="images/mobile-deals.png"
-                    alt="Le Meow home screen with featured highlights"
-                  />
-                  <!-- <div class="wt-peek">
-                    <img
-                      src="images/step-4-img-2.png"
-                      alt="Le Meow exclusive deals screen"
-                    />
-                  </div> -->
-                  <span class="wt-peek-label"
-                    >Highlights meet member deals</span
-                  >
-                </article>
+                <article class="wt-slide" aria-label="New Phase 2 screens and customised feeds"><img class="wt-primary" src="images/mobile-home.png" alt="Le Meow Phase 2 personalised home screen" /><span class="wt-peek-label">Your feed, your interests</span></article>
+                <article class="wt-slide" aria-label="Enhanced membership rewards and wallet"><img class="wt-primary" src="images/mobile-wallet.png" alt="Le Meow wallet, rewards and tier progress screen" /></article>
+                <article class="wt-slide" aria-label="Discovery and gift vouchers"><img class="wt-primary" src="images/mobile-home.png" alt="Le Meow Discovery community stories screen" /><span class="wt-peek-label">Gift joy in a few taps</span></article>
+                <article class="wt-slide" aria-label="Featured highlights and exclusive deals"><img class="wt-primary" src="images/mobile-deals.png" alt="Le Meow home screen with featured highlights" /><span class="wt-peek-label">Highlights meet member deals</span></article>
               </div>
             </div>
           </div>
           <nav class="wt-chapters" aria-label="Walkthrough chapters">
-            <button class="wt-chapter active" type="button" data-screen="0">
-              <b>01</b><span>New home<br />&amp; feeds</span>
-            </button>
-            <button class="wt-chapter" type="button" data-screen="1">
-              <b>02</b><span>Rewards<br />&amp; wallet</span>
-            </button>
-            <button class="wt-chapter" type="button" data-screen="2">
-              <b>03</b><span>Discover<br />&amp; gift</span>
-            </button>
-            <button class="wt-chapter" type="button" data-screen="3">
-              <b>04</b><span>Highlights<br />&amp; deals</span>
-            </button>
+            <button class="wt-chapter active" type="button" data-screen="0"><b>01</b><span>New home<br />&amp; feeds</span></button>
+            <button class="wt-chapter" type="button" data-screen="1"><b>02</b><span>Rewards<br />&amp; wallet</span></button>
+            <button class="wt-chapter" type="button" data-screen="2"><b>03</b><span>Discover<br />&amp; gift</span></button>
+            <button class="wt-chapter" type="button" data-screen="3"><b>04</b><span>Highlights<br />&amp; deals</span></button>
           </nav>
         </div>
         <div class="wt-controls">
           <span class="wt-hint">Swipe or use your arrow keys</span>
-          <button class="wt-back" id="wtBack" type="button" disabled>
-            Back
-          </button>
+          <button class="wt-back" id="wtBack" type="button" disabled>Back</button>
           <div class="wt-dots" aria-label="Walkthrough progress">
-            <button
-              class="wt-dot active"
-              type="button"
-              data-screen="0"
-              aria-label="Show screen 1"
-            ></button>
-            <button
-              class="wt-dot"
-              type="button"
-              data-screen="1"
-              aria-label="Show screen 2"
-            ></button>
-            <button
-              class="wt-dot"
-              type="button"
-              data-screen="2"
-              aria-label="Show screen 3"
-            ></button>
-            <button
-              class="wt-dot"
-              type="button"
-              data-screen="3"
-              aria-label="Show screen 4"
-            ></button>
+            <button class="wt-dot active" type="button" data-screen="0" aria-label="Show screen 1"></button>
+            <button class="wt-dot" type="button" data-screen="1" aria-label="Show screen 2"></button>
+            <button class="wt-dot" type="button" data-screen="2" aria-label="Show screen 3"></button>
+            <button class="wt-dot" type="button" data-screen="3" aria-label="Show screen 4"></button>
           </div>
-          <button class="wt-next" id="wtNext" type="button">
-            <span>Next</span><i aria-hidden="true">→</i>
-          </button>
+          <button class="wt-next" id="wtNext" type="button"><span>Next</span><i aria-hidden="true">→</i></button>
         </div>
       </div>
     </section>
+    -->
 
     <!-- Navbar -->
     <nav class="nav wrap">
@@ -1832,8 +1706,7 @@
       <div class="links">
         <a href="#how">How it works</a><a href="#experiences">Experiences</a
         ><a href="#membership">Membership</a
-        ><button class="wt-replay" id="wtReplay" type="button">
-          Le Meow Phase 2</button
+       ><!--<button class="wt-replay" id="wtReplay" type="button">Le Meow Phase 2</button>-->
         ><a
           class="btn ghost"
           href="#contact"
@@ -2463,10 +2336,9 @@
       >
     </div>
 
-    <!-- Replay Btn -->
-    <button class="wt-launch" id="wtReplayFab" type="button">
-      Replay Le Meow walkthrough
-    </button>
+    <!-- Replay Btn (commented out)
+    <button class="wt-launch" id="wtReplayFab" type="button">Replay Le Meow walkthrough</button>
+    -->
 
     <!-- Scripts -->
     <script src="reviews.js"></script>
@@ -2507,172 +2379,10 @@
         }
       })();
 
-      (() => {
-        const screens = [
-          {
-            count: "01 / 04 · Phase 2",
-            title: "The new Le Meow, <em>made around you.</em>",
-            body: "A cleaner home, more services and a personalised feed shaped by the interests you choose.",
-            one: "New Phase 2 screens",
-            oneCopy: "A simpler home for every service.",
-            two: "Customised feeds",
-            twoCopy: "Fresh content selected for you.",
-          },
-          {
-            count: "02 / 04 · Membership",
-            title: "Every booking should <em>give you more.</em>",
-            body: "See your wallet, points, rewards and progress from White to Black membership in one clear place.",
-            one: "Enhanced tiers & rewards",
-            oneCopy: "Unlock richer benefits as you grow.",
-            two: "Wallet at a glance",
-            twoCopy: "Top up, pay and track every reward.",
-          },
-          {
-            count: "03 / 04 · Community",
-            title: "Discover it. Love it. <em>Gift it.</em>",
-            body: "Explore real stories from the Le Meow community, then send someone a thoughtful gift in a few taps.",
-            one: "Discovery",
-            oneCopy: "Real moments across every service.",
-            two: "Gift vouchers",
-            twoCopy: "Choose, send and redeem with ease.",
-          },
-          {
-            count: "04 / 04 · Just for you",
-            title: "The best of Le Meow, <em>right up front.</em>",
-            body: "Catch fresh featured highlights and book exclusive deals across beauty, education, home, lifestyle and Le Destin.",
-            one: "Featured highlights",
-            oneCopy: "Short stories worth seeing now.",
-            two: "Exclusive deals",
-            twoCopy: "Member offers chosen for you.",
-          },
-        ];
-        const overlay = document.getElementById("leMeowWalkthrough");
-        const track = document.getElementById("wtTrack");
-        const viewport = document.getElementById("wtViewport");
-        const back = document.getElementById("wtBack");
-        const next = document.getElementById("wtNext");
-        const skip = document.getElementById("wtSkip");
-        const dots = [...document.querySelectorAll(".wt-dot")];
-        const chapters = [...document.querySelectorAll(".wt-chapter")];
-        const slides = [...document.querySelectorAll(".wt-slide")];
-        const fields = {
-          count: document.getElementById("wtCount"),
-          title: document.getElementById("wtTitle"),
-          body: document.getElementById("wtBody"),
-          one: document.getElementById("wtFeatureOne"),
-          oneCopy: document.getElementById("wtFeatureOneCopy"),
-          two: document.getElementById("wtFeatureTwo"),
-          twoCopy: document.getElementById("wtFeatureTwoCopy"),
-        };
-        let current = 0;
-        let startX = null;
-
-        function show(index) {
-          current = Math.max(0, Math.min(screens.length - 1, index));
-          const screen = screens[current];
-          track.style.transform = `translateX(-${current * 100}%)`;
-          fields.count.textContent = screen.count;
-          fields.title.innerHTML = screen.title;
-          fields.body.textContent = screen.body;
-          fields.one.textContent = screen.one;
-          fields.oneCopy.textContent = screen.oneCopy;
-          fields.two.textContent = screen.two;
-          fields.twoCopy.textContent = screen.twoCopy;
-          back.disabled = current === 0;
-          next.querySelector("span").textContent =
-            current === screens.length - 1 ? "Enter Le Destin" : "Next";
-          next.querySelector("i").textContent =
-            current === screens.length - 1 ? "✓" : "→";
-          dots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === current);
-            dot.setAttribute("aria-current", i === current ? "step" : "false");
-          });
-          chapters.forEach((chapter, i) => {
-            chapter.classList.toggle("active", i === current);
-            chapter.setAttribute(
-              "aria-current",
-              i === current ? "step" : "false",
-            );
-          });
-          slides.forEach((slide, i) =>
-            slide.setAttribute("aria-hidden", i === current ? "false" : "true"),
-          );
-        }
-
-        function closeWalkthrough() {
-          overlay.hidden = true;
-          document.body.classList.remove("walkthrough-open");
-          document.getElementById("wtReplayFab").focus({ preventScroll: true });
-        }
-
-        function openWalkthrough() {
-          overlay.hidden = false;
-          document.body.classList.add("walkthrough-open");
-          show(0);
-          requestAnimationFrame(() => next.focus({ preventScroll: true }));
-        }
-
-        next.addEventListener("click", () =>
-          current === screens.length - 1
-            ? closeWalkthrough()
-            : show(current + 1),
-        );
-        back.addEventListener("click", () => show(current - 1));
-        skip.addEventListener("click", closeWalkthrough);
-        document
-          .getElementById("wtReplay")
-          .addEventListener("click", openWalkthrough);
-        document
-          .getElementById("wtReplayFab")
-          .addEventListener("click", openWalkthrough);
-        [...dots, ...chapters].forEach((control) =>
-          control.addEventListener("click", () =>
-            show(Number(control.dataset.screen)),
-          ),
-        );
-        viewport.addEventListener("pointerdown", (event) => {
-          startX = event.clientX;
-        });
-        viewport.addEventListener("pointerup", (event) => {
-          if (startX === null) return;
-          const distance = event.clientX - startX;
-          startX = null;
-          if (Math.abs(distance) > 42) show(current + (distance < 0 ? 1 : -1));
-        });
-        viewport.addEventListener("pointercancel", () => {
-          startX = null;
-        });
-        document.addEventListener("keydown", (event) => {
-          if (overlay.hidden) return;
-          if (event.key === "ArrowRight") {
-            event.preventDefault();
-            show(current + 1);
-          }
-          if (event.key === "ArrowLeft") {
-            event.preventDefault();
-            show(current - 1);
-          }
-          if (event.key === "Escape") {
-            event.preventDefault();
-            closeWalkthrough();
-          }
-          if (event.key === "Tab") {
-            const focusable = [
-              ...overlay.querySelectorAll("button:not(:disabled)"),
-            ];
-            const first = focusable[0],
-              last = focusable[focusable.length - 1];
-            if (event.shiftKey && document.activeElement === first) {
-              event.preventDefault();
-              last.focus();
-            } else if (!event.shiftKey && document.activeElement === last) {
-              event.preventDefault();
-              first.focus();
-            }
-          }
-        });
-        show(0);
-      })();
+      // Walkthrough JS (commented out — page loads home directly)
+      // (() => {
+      //   ... walkthrough logic ...
+      // })();
     </script>
   </body>
 </html>

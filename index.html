@@ -113,6 +113,7 @@
         inset: auto 0 0;
         height: 180px;
         background: linear-gradient(transparent, var(--cream));
+        pointer-events: none;
       }
       .hero:before {
         content: "";
@@ -1718,11 +1719,15 @@
     <!-- Header -->
     <header class="hero" id="top">
       <video
+        id="heroBgVideo"
         class="hero-video"
+        autoplay
         muted
         loop
         playsinline
+        webkit-playsinline
         preload="auto"
+        src="images/hero-bg-video.mp4"
         aria-hidden="true"
       >
         <source src="images/hero-bg-video.mp4" type="video/mp4" />
@@ -2365,18 +2370,57 @@
         );
         if (!hero || !video || reduceMotion.matches) return;
 
-        function revealVideo() {
-          video
-            .play()
-            .then(() => hero.classList.add("video-ready"))
-            .catch(() => hero.classList.remove("video-ready"));
-        }
+        // Force WebKit muted and inline properties
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+        video.setAttribute("playsinline", "");
+        video.setAttribute("webkit-playsinline", "");
 
-        if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
-          revealVideo();
-        } else {
-          video.addEventListener("canplaythrough", revealVideo, { once: true });
-        }
+        const markReady = () => {
+          hero.classList.add("video-ready");
+        };
+
+        video.addEventListener("playing", markReady, { once: true });
+        video.addEventListener("timeupdate", markReady, { once: true });
+        video.addEventListener("loadeddata", markReady, { once: true });
+
+        const playVideo = () => {
+          const promise = video.play();
+          if (promise !== undefined) {
+            promise
+              .then(markReady)
+              .catch(() => {
+                // If autoplay is blocked (e.g. Low Power Mode on iOS), play on first user interaction
+                const unlock = () => {
+                  video
+                    .play()
+                    .then(markReady)
+                    .catch(() => {});
+                  ["touchstart", "touchend", "click", "scroll"].forEach((evt) => {
+                    window.removeEventListener(evt, unlock);
+                  });
+                };
+                ["touchstart", "touchend", "click", "scroll"].forEach((evt) => {
+                  window.addEventListener(evt, unlock, { once: true, passive: true });
+                });
+              });
+          }
+        };
+
+        playVideo();
+
+        // Resume playback if returning from background tab/app
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden && video.paused) {
+            playVideo();
+          }
+        });
+        window.addEventListener("pageshow", () => {
+          if (video.paused) {
+            playVideo();
+          }
+        });
       })();
 
       // Walkthrough JS (commented out — page loads home directly)

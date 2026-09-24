@@ -2649,33 +2649,24 @@
         }),
       );
 
-      window.addEventListener("load", () => {
+      const playHeroVideo = () => {
         const video = document.getElementById("heroBgVideo");
+        if (!video) return;
 
-        function tryPlayVideo() {
-          if (!video) return;
-          video.muted = true;
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(() => {
-              // Autoplay blocked (e.g. Low Power Mode) — fall back to play on first touch
-              const resume = () => {
-                video.play().catch(() => {});
-                document.removeEventListener("touchstart", resume);
-              };
-              document.addEventListener("touchstart", resume, { once: true });
-            });
-          }
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              document.removeEventListener("touchstart", playHeroVideo);
+            })
+            .catch(() => {});
         }
+      };
 
-        // Call immediately once metadata is ready, not on a delayed timeout
-        if (video) {
-          video.addEventListener("loadedmetadata", tryPlayVideo, {
-            once: true,
-          });
-          // Safety net in case loadedmetadata already fired before listener attached
-          if (video.readyState >= 1) tryPlayVideo();
-        }
+      document.addEventListener("touchstart", playHeroVideo, { passive: true });
+      window.addEventListener("load", () => {
+        window.setTimeout(playHeroVideo, 200);
       });
 
       // Walkthrough JS (commented out — page loads home directly)

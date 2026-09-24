@@ -139,10 +139,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-      .hero.video-ready .hero-video {
         opacity: 1;
       }
       .hero-copy {
@@ -2678,7 +2674,11 @@
 
         video.addEventListener("playing", markReady, { once: true });
         video.addEventListener("timeupdate", markReady, { once: true });
-        video.addEventListener("loadeddata", markReady, { once: true });
+        video.addEventListener(
+          "loadeddata",
+          () => hero.classList.add("video-ready"),
+          { once: true },
+        );
 
         const unlockEvents = ["touchstart", "pointerdown", "click", "keydown"];
         let unlockListening = false;
@@ -2721,7 +2721,9 @@
           video.muted = true;
           const playPromise = video.play();
           if (playPromise && typeof playPromise.then === "function") {
-            playPromise.then(markReady).catch(addUnlockListeners);
+            playPromise.then(markReady).catch(() => {
+              addUnlockListeners();
+            });
           } else if (!video.paused) {
             markReady();
           } else {

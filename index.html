@@ -1733,6 +1733,7 @@
         playsinline
         webkit-playsinline
         preload="auto"
+        controls="false"
         poster="images/hero-bg-poster.png"
       >
         <source src="images/hero-bg-video-ios.mp4" type="video/mp4" />
@@ -2649,6 +2650,16 @@
           }
         }),
       );
+
+      window.addEventListener("load", () => {
+        window.setTimeout(() => {
+          const video = document.getElementById("heroBgVideo");
+          if (!video) return;
+
+          video.muted = true;
+          video.play().catch(() => {});
+        }, 200);
+      });
 
       // Walkthrough JS (commented out — page loads home directly)
       // (() => {

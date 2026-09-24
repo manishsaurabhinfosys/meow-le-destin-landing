@@ -178,7 +178,7 @@
 
       const image = document.createElement("div");
       image.className = "card-img";
-      image.style.backgroundImage = `url("${event.image_url || fallbackImageForEvent(event)}")`;
+      image.style.backgroundImage = `url("${event.banner_image_url || event.image_url || fallbackImageForEvent(event)}")`;
 
       const body = document.createElement("div");
       body.className = "card-body";

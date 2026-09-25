@@ -256,6 +256,7 @@
 
   function isRenderable(notice) {
     if (!notice || typeof notice !== "object") return false;
+    if (getText(notice.display_on).toLowerCase() === "app") return false;
     if (notice.type === "full") return true;
     if (notice.type === "image_only") {
       const { desktop, mobile } = getWebImageUrls(notice);

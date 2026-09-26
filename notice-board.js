@@ -178,9 +178,9 @@
       .notice-board-panel {
         width: auto;
         max-width: calc(100vw - 24px);
-        min-height: 80svh;
+        // min-height: 80svh;
         max-height: 80svh;
-        height: 80svh;
+        // height: 80svh;
       }
       .notice-board-image-only {
         aspect-ratio: 4 / 5;
@@ -403,9 +403,9 @@
       resolveImageUrl(notice.image_url) || resolveImageUrl(notice.image);
     const hasTextContent = Boolean(
       getText(notice.title) ||
-        getText(notice.subtitle) ||
-        getText(notice.display_date_range) ||
-        getText(notice.message),
+      getText(notice.subtitle) ||
+      getText(notice.display_date_range) ||
+      getText(notice.message),
     );
     if (imageUrl && !hasTextContent) {
       const content = document.createElement("div");

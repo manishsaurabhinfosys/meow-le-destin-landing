@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | Le Destin</title>
+    <meta
+      name="description"
+      content="Read the official Privacy Policy for Le Destin — Curated Matchmaking & Dining Experiences."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1a1714;
+        --muted: #71695f;
+        --gold: #b88a3b;
+        --pale: #f7f2e9;
+        --cream: #fcfaf6;
+        --line: #e9dfcf;
+        --dark: #17130f;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font: 15px/1.65 "DM Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+      }
+      .wrap {
+        width: min(1160px, calc(100% - 40px));
+        margin: auto;
+      }
+
+      /* HEADER */
+      header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background: rgba(252, 250, 246, 0.95);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-bar {
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .st-logo {
+        height: 52px;
+        width: auto;
+      }
+      .links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+      .links > a:not(.btn) {
+        font-size: 13.5px;
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+      .links > a:not(.btn):hover {
+        color: var(--gold);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 22px;
+        border-radius: 999px;
+        font-size: 13.5px;
+        background: var(--gold);
+        color: #fff;
+        transition: all 0.25s;
+      }
+      .btn:hover {
+        background: #9d732c;
+      }
+
+      /* HERO */
+      .legal-hero {
+        padding: 48px 0 24px;
+        text-align: center;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .back-link:hover {
+        color: var(--gold);
+      }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .legal-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(34px, 4.5vw, 48px);
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .legal-meta {
+        font-size: 13.5px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      /* SHELL & CARD */
+      .legal-shell {
+        flex: 1 0 auto;
+        max-width: 900px;
+        padding: 12px 20px 72px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      .legal-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: clamp(24px, 4.5vw, 48px);
+        box-shadow: 0 10px 30px rgba(23, 19, 15, 0.03);
+      }
+
+      /* LOADING / SPINNER */
+      .legal-loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        min-height: 240px;
+        color: var(--muted);
+        font-size: 13.5px;
+      }
+      .spinner {
+        width: 36px;
+        height: 36px;
+        border: 3px solid var(--line);
+        border-top-color: var(--gold);
+        border-radius: 50%;
+        animation: spin 0.85s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .legal-error,
+      .legal-empty {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--muted);
+      }
+
+      /* CONTENT */
+      .legal-content {
+        color: #332d27;
+        line-height: 1.8;
+      }
+      .legal-content > * + * {
+        margin-top: 1rem;
+      }
+      .legal-content h1,
+      .legal-content h2,
+      .legal-content h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--ink);
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 0.4rem;
+      }
+      .legal-content strong {
+        color: var(--ink);
+      }
+      .legal-content a {
+        color: var(--gold);
+        text-decoration: underline;
+      }
+      .legal-content a:hover {
+        color: #9d732c;
+      }
+      .legal-content ul,
+      .legal-content ol {
+        padding-left: 1.6rem;
+        margin: 0.6rem 0;
+      }
+      .legal-content li {
+        margin-top: 0.35rem;
+      }
+      .legal-content li > p {
+        display: inline;
+        margin: 0;
+      }
+
+      /* CARD FOOT */
+      .card-legal-foot {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .card-legal-foot a:hover,
+      .card-legal-foot a.active {
+        color: var(--gold);
+      }
+
+      /* FOOTER */
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 36px 0;
+        background: var(--cream);
+        margin-top: auto;
+      }
+      .foot-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .foot-links {
+        display: flex;
+        gap: 20px;
+      }
+      .foot-links a:hover {
+        color: var(--gold);
+      }
+
+      @media (max-width: 768px) {
+        .links > a:not(.btn) {
+          display: none;
+        }
+        .foot-row {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav-bar">
+        <a class="brand" href="../index.html">
+          <img class="st-logo" src="../images/le-meow-logo.png" alt="Le Destin" />
+        </a>
+        <div class="links">
+          <a href="../index.html#how">How it works</a>
+          <a href="../index.html#experiences">Experiences</a>
+          <a href="../index.html#membership">Membership</a>
+          <a class="btn" href="../index.html#contact">Apply</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="legal-hero">
+      <div class="wrap">
+        <div>
+          <a href="../index.html" class="back-link">
+            ← Back to Home
+          </a>
+        </div>
+        <p class="eyebrow">Governance &amp; Privacy</p>
+        <h1 id="legalTitle" class="legal-title">Privacy Policy</h1>
+        <p id="legalMeta" class="legal-meta" style="display: none;"></p>
+      </div>
+    </section>
+
+    <main class="legal-shell">
+      <div class="legal-card">
+        <div id="legalLoading" class="legal-loading">
+          <div class="spinner"></div>
+          <span>Loading privacy policy...</span>
+        </div>
+        <div id="legalError" class="legal-error" style="display: none;">
+          <p style="margin-bottom: 12px;">Unable to load the privacy policy right now.</p>
+          <button type="button" class="btn" id="retryBtn">Retry</button>
+        </div>
+        <div id="legalEmpty" class="legal-empty" style="display: none;">
+          Privacy Policy content not configured.
+        </div>
+        <div id="legalContent" class="legal-content" style="display: none;"></div>
+
+        <div class="card-legal-foot">
+          <a href="./" class="active">Privacy Policy</a>
+          <span>·</span>
+          <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+          <span>·</span>
+          <a href="../index.html#contact">Contact</a>
+          <span>·</span>
+          <a href="../index.html">Home</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap foot-row">
+        <span>© 2026 Le Destin. Singapore. All rights reserved.</span>
+        <div class="foot-links">
+          <a href="./">Privacy Policy</a>
+          <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="../index.html#contact">Apply</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const URL = "https://meow-service-test.flutterclone.com/api/admin/pages/slug/privacy-policy";
+        const loadingEl = document.getElementById("legalLoading");
+        const errorEl = document.getElementById("legalError");
+        const emptyEl = document.getElementById("legalEmpty");
+        const contentEl = document.getElementById("legalContent");
+        const titleEl = document.getElementById("legalTitle");
+        const metaEl = document.getElementById("legalMeta");
+        const retryBtn = document.getElementById("retryBtn");
+
+        async function fetchPolicy() {
+          loadingEl.style.display = "flex";
+          errorEl.style.display = "none";
+          emptyEl.style.display = "none";
+          contentEl.style.display = "none";
+
+          try {
+            const res = await fetch(URL, {
+              headers: { Accept: "application/json", "X-Platform": "web" }
+            });
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            const json = await res.json();
+            const page = json?.data;
+            if (!page || !page.description || !page.description.trim()) {
+              loadingEl.style.display = "none";
+              emptyEl.style.display = "block";
+              return;
+            }
+            if (page.title) {
+              titleEl.textContent = page.title;
+              document.title = page.title + " | Le Destin";
+            }
+            if (page.updated_at) {
+              const d = new Date(page.updated_at);
+              if (!isNaN(d.getTime())) {
+                metaEl.textContent = "Last updated: " + d.toLocaleDateString("en-US", {
+                  year: "numeric", month: "long", day: "numeric"
+                });
+                metaEl.style.display = "block";
+              }
+            }
+            contentEl.innerHTML = page.description.trim();
+            loadingEl.style.display = "none";
+            contentEl.style.display = "block";
+          } catch (err) {
+            console.error("Failed to load policy:", err);
+            loadingEl.style.display = "none";
+            errorEl.style.display = "block";
+          }
+        }
+
+        if (retryBtn) retryBtn.addEventListener("click", fetchPolicy);
+        fetchPolicy();
+      })();
+    </script>
+  </body>
+</html>

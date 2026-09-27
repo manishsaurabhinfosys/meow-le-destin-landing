@@ -1,6 +1,6 @@
 (() => {
   const VENUES_ENDPOINT =
-    "https://meow-service-test.flutterclone.com/api/public/le-destin/venues/list?nopaginate=1";
+    "https://lemeowapis.meowadvancedintelligence.com/api/public/le-destin/venues/list?nopaginate=1";
   const LE_DESTIN_SECRET =
     "pld_2f7a9c1e6b3d4f8081ac5e9d0b6f7a3c4e2d1b8f9a0c3e5d";
   const venuesGrid = document.getElementById("venuesGrid");

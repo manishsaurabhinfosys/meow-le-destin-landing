@@ -1,5 +1,5 @@
 (() => {
-  const BASE_URL = "https://meow-service-test.flutterclone.com";
+  const BASE_URL = "https://lemeowapis.meowadvancedintelligence.com";
   const SITE_SLUG = "httpledestinmeowadvancedintelligencecom-1788513931";
   const API_KEY = "site_ecb8ededa4649b0d3c0081a3605884d2fcc794a59f13a29d";
   const STORAGE_KEY = "dismissed_notices";

@@ -4,7 +4,7 @@
   const container = document.querySelector("[data-brand-contact-list]");
   if (!slug || !container) return;
   container.hidden = true;
-  fetch("https://meow-service-test.flutterclone.com/api/user/brand", { headers: { Accept: "application/json" } })
+  fetch("https://lemeowapis.meowadvancedintelligence.com/api/user/brand", { headers: { Accept: "application/json" } })
     .then((response) => { if (!response.ok) throw new Error(`Brand request failed (${response.status})`); return response.json(); })
     .then((payload) => {
       const brand = payload?.data?.find((item) => item.slug?.toLowerCase() === slug.toLowerCase());

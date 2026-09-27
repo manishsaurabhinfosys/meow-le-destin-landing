@@ -98,7 +98,7 @@
     if (!reviewsGrid) return;
     try {
       const response = await fetch(
-        `https://meow-service-test.flutterclone.com/api/sites/${siteSlug}/reviews?nopaginate=1`,
+        `https://lemeowapis.meowadvancedintelligence.com/api/sites/${siteSlug}/reviews?nopaginate=1`,
         {
           headers: {
             "x-site-api-key": HELPERS_Head,
